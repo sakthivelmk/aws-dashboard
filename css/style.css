@@ -1,0 +1,173 @@
+.centre {
+  position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+header {
+	width: 100%;
+	height: 4em;
+	background-color: #444;
+}
+
+#title_div {
+	font-size: 2.3em;
+	width: 100%;
+	text-align: center;
+	height: 100%;
+	color: #fff;
+}
+
+#datetime_wrapper {
+	width: 100%;
+	/*text-align: center;*/
+	/*height: 2.3em;*/
+	/*float: right;*/
+	border-bottom: 1px solid rgba(128, 128, 128, 0.42);
+	display: flow-root;
+}
+
+#datetime_div {
+	float: right;
+    margin: 0.4em;
+}
+
+#datetime_div input {
+	padding: 0.4em;
+}
+
+#main_wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #F6F6F6;
+}
+.class1 {
+	width: 100%;
+    margin: 1.3em 1.3em 0 1.3em;
+    padding: 1em;
+    background: white;
+    border: 1px solid rgba(128, 128, 128, 0.33);
+}
+
+.class1 span {
+	font-size: 1.4em;
+	/*text-decoration: underline;*/
+	/*margin-bottom: 1em;*/
+}
+
+.class1 ul {
+	margin-top: 1em;
+    padding-left: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.class1 li {
+	background: #5d98f9;
+    padding: 0.5em 1em;
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid rgba(128, 128, 128, 0);
+    border-radius: 4px;
+    margin: 4px;
+    font-size: 1.1em;
+}
+
+.class1 li:hover, 
+#metrics_innerdiv span, 
+#metrics_innerdiv span input, 
+#metrics_innerdiv span label {
+	cursor: pointer;
+}
+
+#metrics_innerdiv {
+	margin-top: 1em;
+    padding-left: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#metrics_innerdiv span {
+	font-size: 1em;
+	text-decoration: none;
+	padding: 0.5em;
+	border: 1px solid #cecbcb;
+    margin: 0.2em;
+    background: #f5f3f3;
+}
+
+#metrics_innerdiv span input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.3); /* IE */
+  -moz-transform: scale(1.3); /* FF */
+  -webkit-transform: scale(1.3); /* Safari and Chrome */
+  -o-transform: scale(1.3); /* Opera */
+  display: none;
+}
+
+#metrics_innerdiv span label {
+	/*margin-left: 0.4em;*/
+}
+
+#graphs_div {
+	margin-bottom: 1.3em;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#graphs_div img {
+	border: 1px solid rgba(128, 128, 128, 0.33);
+	margin: 0.2em;
+}
+
+.selected_dash {
+	background-color: #0850c7 !important;
+}
+
+.selected_met {
+	background: #696565 !important;
+    color: #fff !important;
+    border: 1px solid #696565 !important;
+}
+
+#preloader_div {
+	background: rgba(111, 103, 103, 0.8);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+
+#preloader {
+  border: 5px solid #e0dcdc;
+  border-radius: 50%;
+  border-top: 5px solid #0494f5;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  top: 46% !important;
+  left: 46.5% !important;															
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
