@@ -9,6 +9,6 @@ hooks:
       timeout: 180
       runas: root
   BeforeInstall:
-    - location: scripts/pullImg.sh
+    - location: scripts/runImg.sh
       timeout: 1800
       runas: root
