@@ -16,7 +16,7 @@
 <body>
   <header>
     <div id="title_div">
-	   <h1 class="centre">AWS-Dashboard</h1>
+	   <h1 class="centre">AWS CloudWatch Dashboard</h1>
     </div>
   </header>
     <div id="datetime_wrapper">    
