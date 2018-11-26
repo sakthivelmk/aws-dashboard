@@ -7,11 +7,11 @@
     $client = new CloudWatchClient([
         'region' => 'eu-west-1',
         'version' => 'latest',
-        // 'credentials' => array(
-        //                     'key'    => getenv('AWS_ACCESS_KEY_ID'),
-        //                     'secret' => getenv('AWS_SECRET_ACCESS_KEY')
-        //                 ),
-        'profile' => 'default'
+        'credentials' => array(
+                            'key'    => getenv('AWS_ACCESS_KEY_ID'),
+                            'secret' => getenv('AWS_SECRET_ACCESS_KEY')
+                        ),
+        // 'profile' => 'default'
     ]);
 
    $result = $client->getDashboard([
