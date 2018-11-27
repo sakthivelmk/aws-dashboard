@@ -1,6 +1,10 @@
 [
     {
         "name": "aws-dash-task",
-        "imageUri": "042524953207.dkr.ecr.eu-west-1.amazonaws.com/aws-dashboard:latest"
+        "imageUri": "042524953207.dkr.ecr.eu-west-1.amazonaws.com/aws-dashboard:latest",
+        "environment":[
+  			{"name":"AWS_ACCESS_KEY_ID","valueFrom":"/CodeBuild/AWS_ACCESS_KEY_ID"},
+  			{"name":"AWS_SECRET_ACCESS_KEY" ,"valueFrom":"/CodeBuild/AWS_SECRET_ACCESS_KEY"}
+      	]
     }
 ]
