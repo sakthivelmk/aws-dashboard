@@ -9,7 +9,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t aws-dashboard .
+      - docker build --build-arg buildtime_variable_1=$AWS_ACCESS_KEY_ID --build-arg buildtime_variable_2=$AWS_SECRET_ACCESS_KEY -t aws-dashboard .
       - docker tag aws-dashboard 042524953207.dkr.ecr.eu-west-1.amazonaws.com/aws-dashboard:latest
       - docker tag aws-dashboard 042524953207.dkr.ecr.eu-west-1.amazonaws.com/aws-dashboard:1.0
   post_build:
