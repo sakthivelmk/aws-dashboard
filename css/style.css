@@ -28,9 +28,6 @@ header {
 
 #datetime_wrapper {
 	width: 100%;
-	/*text-align: center;*/
-	/*height: 2.3em;*/
-	/*float: right;*/
 	border-bottom: 1px solid rgba(128, 128, 128, 0.42);
 	display: flow-root;
 }
@@ -60,8 +57,6 @@ header {
 
 .class1 span {
 	font-size: 1.4em;
-	/*text-decoration: underline;*/
-	/*margin-bottom: 1em;*/
 }
 
 .class1 ul {
@@ -116,7 +111,6 @@ header {
 }
 
 #metrics_innerdiv span label {
-	/*margin-left: 0.4em;*/
 }
 
 #graphs_div {

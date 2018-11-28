@@ -14,10 +14,6 @@
         // 'profile' => 'default'
     ]);
 
-   $result = $client->getDashboard([
-    'DashboardName' => 'test', // REQUIRED
-]);
-
     function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -34,7 +30,6 @@
       $result = $client->listDashboards();
       foreach ($result['DashboardEntries'] as $inner_array) {
         $dashboards[] = $inner_array['DashboardName'];
-        // $dash .= "<li><a >".$inner_array['DashboardName']."</a></li>";
       }
       echo(implode(",",$dashboards));
       // echo $dash;
@@ -46,35 +41,13 @@
       $result = $client->getDashboard([
         'DashboardName' => $dash
       ]);
-      // $widgets = json_decode($result['DashboardBody'], true)['widgets'];
-      // print_r(json_decode($result['DashboardBody'], true));
       print_r($result['DashboardBody']);
-      // foreach ($widgets as $widget) {
-        
-      // }
       break;
 
     case 'getMWI':
       //Get MWI
       $mw = htmlspecialchars_decode(test_input($_GET['mw']));
       // var_dump($mw);
-      
-      // $mw = '{
-      //   "metrics": [
-      //   [ "AWS/EC2", "CPUUtilization", "InstanceId", "i-0d50cfb94ed042683", { "stat": "Average", "id": "m0r0",  "label": "Webserver-test" } ]
-      //   ],
-      //   "title": "CPU Utilization Average",
-      //   "copilot": true,
-      //   "view": "timeSeries",
-      //   "stacked": true,
-      //   "width": 1200,
-      //   "height": 400,
-      //   "start": "'.$startdate.'",
-      //   "end": "'.$enddate.'"
-      //   }';
-
-      // $mw = {"view":"timeSeries","stacked":true,"metrics":[["AWS/EC2","CPUUtilization","InstanceId","i-0d50cfb94ed042683"]],"region":"eu-west-1"};
-
       $params = [
         'MetricWidget' => $mw
         ];
