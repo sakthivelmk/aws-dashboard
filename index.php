@@ -21,9 +21,9 @@
   </header>
     <div id="datetime_wrapper">    
       <div id="datetime_div">
-        <input type="datetime-local" name="startdaytime" id="startdaytime" required> 
-         - 
-        <input type="datetime-local" name="enddaytime" id="enddaytime" required>
+        <input type="text" name="startdatetime" id="startdatetime" value="" placeholder="Select time range" style="width:18em" required> 
+         <!-- - 
+        <input type="datetime-local" name="enddatetime" id="enddatetime" required> -->
         <input type="submit" name="submit" id="datatime_submit" title="Refresh" value="&#x21BB;" style="font-size: 1em; padding: 0.3em 0.5em;">        
       </div>
     </div>
@@ -70,11 +70,17 @@
         // console.log(metric);
 
         //add datetime
-        var startdaytime = $('#startdaytime').val();
-        var enddaytime = $('#enddaytime').val();
-        if (startdaytime!=""&&enddaytime!="") {
-          tmpData.widgets[metric_num].properties.start = startdaytime;
-          tmpData.widgets[metric_num].properties.end = enddaytime;
+        var datetime = $('#startdatetime').val();
+        // var enddatetime = $('#enddatetime').val();
+        if (datetime!="") {
+          var datetime_arr = datetime.split(" - ");
+          var startdatetime = datetime_arr[0].replace(" ", "T");
+          var enddatetime = datetime_arr[1].replace(" ", "T");
+          tmpData.widgets[metric_num].properties.start = startdatetime;
+          tmpData.widgets[metric_num].properties.end = enddatetime;
+        } else {
+          tmpData.widgets[metric_num].properties.start = "-PT3H";
+          tmpData.widgets[metric_num].properties.end = "P0D";
         }
 
         var mw = JSON.stringify(tmpData.widgets[metric_num].properties);
@@ -181,5 +187,43 @@
 	});
 
   </script>
+  <script type="text/javascript">
+$(function() {
+
+  $('input[name="startdatetime"]').daterangepicker({
+    // ranges: {
+    //     'Today': [moment(), moment()],
+    //     'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //     'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+    //     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    //     'This Month': [moment().startOf('month'), moment().endOf('month')],
+    //     'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    // },
+      // showDropdowns: true,
+      timePicker: true,
+      timePicker24Hour: true,
+      autoUpdateInput: false,
+      opens: "left",
+      locale: {
+          cancelLabel: 'Clear',
+          format: 'YYYY-MM-DD HH:mm'
+      }
+  });
+
+  $('input[name="startdatetime"]').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm') + ' - ' + picker.endDate.format('YYYY-MM-DD HH:mm'));
+      $("#datatime_submit").click();
+  });
+
+  $('input[name="startdatetime"]').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+      $("#datatime_submit").click();
+  });
+
+});
+</script>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </html>
