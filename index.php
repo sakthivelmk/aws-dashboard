@@ -21,7 +21,7 @@
   </header>
     <div id="datetime_wrapper">    
       <div id="datetime_div">
-        <input type="text" name="startdatetime" id="startdatetime" value="" placeholder="Select time range" style="width:18em" required> 
+        <input type="text" name="startdatetime" id="startdatetime" value="" placeholder="Select time range" style="width:18em"> 
          <!-- - 
         <input type="datetime-local" name="enddatetime" id="enddatetime" required> -->
         <input type="submit" name="submit" id="datatime_submit" title="Refresh" value="&#x21BB;" style="font-size: 1em; padding: 0.3em 0.5em;">        
