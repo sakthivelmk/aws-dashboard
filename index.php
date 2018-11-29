@@ -21,10 +21,10 @@
   </header>
     <div id="datetime_wrapper">    
       <div id="datetime_div">
-        <input type="text" name="startdatetime" id="startdatetime" value="" placeholder="Select time range" style="width:18em"> 
+        <input type="text" name="startdatetime" id="startdatetime" value="" placeholder="Select time range"> 
          <!-- - 
         <input type="datetime-local" name="enddatetime" id="enddatetime" required> -->
-        <input type="submit" name="submit" id="datatime_submit" title="Refresh" value="&#x21BB;" style="font-size: 1em; padding: 0.3em 0.5em;">        
+        <input type="submit" name="submit" id="datetime_submit" title="Refresh" value="&#x21BB;" style="font-size: 1em; padding: 0.3em 0.5em;">        
       </div>
     </div>
     <div id="main_wrapper">
@@ -161,7 +161,7 @@
           console.log("Error: " + xhr.status + ": " + xhr.statusText);
     	});
 
-  		$("#datatime_submit").click(function(){
+  		$("#datetime_submit").click(function(){
   			
             var checked_metrics = [];
             var met_div = document.getElementById("metrics");
@@ -191,14 +191,14 @@
 $(function() {
 
   $('input[name="startdatetime"]').daterangepicker({
-    // ranges: {
-    //     'Today': [moment(), moment()],
-    //     'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-    //     'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-    //     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-    //     'This Month': [moment().startOf('month'), moment().endOf('month')],
-    //     'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-    // },
+    ranges: {
+        '1h': [moment().subtract(1, 'hours'), moment()],
+        '3h': [moment().subtract(3, 'hours'), moment()],
+        '12h': [moment().subtract(12, 'hours'), moment()],
+        '1d': [moment().subtract(24, 'hours'), moment()],
+        '3d': [moment().subtract(3, 'days'), moment()],
+        '1w': [moment().subtract(7, 'days'), moment()]
+    },
       // showDropdowns: true,
       timePicker: true,
       timePicker24Hour: true,
@@ -212,12 +212,12 @@ $(function() {
 
   $('input[name="startdatetime"]').on('apply.daterangepicker', function(ev, picker) {
       $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm') + ' - ' + picker.endDate.format('YYYY-MM-DD HH:mm'));
-      $("#datatime_submit").click();
+      $("#datetime_submit").click();
   });
 
   $('input[name="startdatetime"]').on('cancel.daterangepicker', function(ev, picker) {
       $(this).val('');
-      $("#datatime_submit").click();
+      $("#datetime_submit").click();
   });
 
 });

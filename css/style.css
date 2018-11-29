@@ -41,6 +41,28 @@ header {
 	padding: 0.4em;
 }
 
+#startdatetime {
+  border: none;
+  width: 17em;
+  color: #16b;
+  font-weight: bold;
+  text-align: right;
+}
+
+#datetime_submit {
+  background-color: #ececec;
+  border: none;
+}
+
+#startdatetime:hover {
+  cursor: pointer;
+}
+
+#datetime_submit:hover {
+  cursor: pointer;
+  background-color: #cecbcb;
+}
+
 #main_wrapper {
 	width: 100%;
 	display: flex;
